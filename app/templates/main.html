@@ -7,6 +7,68 @@
     <title>Flask Calendar</title>
 </head>
 <body>
-    <h1>Calendar working</h1>
+    <form method="post" action="/">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }}
+            {{ form.name() }}
+        </p>
+        <p>
+            {{ form.start_date.label }}
+            {{ form.start_date() }}
+        </p>
+        <p>
+            {{ form.start_time.label }}
+            {{ form.start_time() }}
+        </p>
+        <p>
+            {{ form.end_date.label }}
+            {{ form.end_date() }}
+
+            {% if form.end_date.errors %}
+            <ul class = 'errors'>
+                {% for error in form.end_date.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endif %}
+        </p>
+        <p>
+            {{ form.end_time.label }}
+            {{ form.end_time() }}
+        </p>
+        <p>
+            {{ form.description.label }}
+            {{ form.description() }}
+        </p>
+        <p>
+            {{ form.private.label }}
+            {{ form.private() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in rows %}
+            <tr>
+                <td>
+                    {{ a[1] }}
+                </td>
+                <td>
+                    {{ a[2].strftime('%H:%M') }}
+                </td>
+                <td>
+                    {{ a[3].strftime('%H:%M') }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

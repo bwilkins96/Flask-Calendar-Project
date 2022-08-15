@@ -449,6 +449,7 @@ refer to _Serving HTML From Flask_ for how to render the form from the
       <th>End</th>
 <!-- the rest of the HTML -->
 ```
+clear
 
 Once you have that done and rendered, it'll look something like this.
 
