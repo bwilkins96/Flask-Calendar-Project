@@ -8,7 +8,32 @@
     <link href="/static/main.css" rel="stylesheet">
 </head>
 <body>
-    <a href={{ today }}>Today's Appointments</a>
+    <a href="/">All Appointments</a>
+    <h1>{{ date }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in rows %}
+            <tr>
+                <td>
+                    {{ a[1] }}
+                </td>
+                <td>
+                    {{ a[2].strftime('%H:%M') }}
+                </td>
+                <td>
+                    {{ a[3].strftime('%H:%M') }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <form method="post" action="">
         {{ form.csrf_token }}
         <p>
@@ -48,37 +73,5 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for a in rows %}
-            <tr>
-                <td>
-                    {{ a[1] }}
-                </td>
-                <td>
-                    {{ a[2].strftime('%H:%M') }}
-                </td>
-                <td>
-                    {{ a[3].strftime('%H:%M') }}
-                </td>
-                <td>
-                    {{ a[2].strftime('%m/%d/%Y') }}
-                </td>
-                <td>
-                    {{ a[3].strftime('%m/%d/%Y') }}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </body>
 </html>

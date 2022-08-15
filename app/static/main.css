@@ -1,0 +1,29 @@
+body {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0,100,200);
+    transition: 0.1s
+}
+
+a:hover {
+    color: blue;
+}
+
+form {
+    border: 1px solid black;
+    padding: 2.5vw;
+    margin: 2vh 0
+}
+
+table {
+    padding: 1.5vw;
+    border: 1px lightblue solid;
+    border-radius: 15px;
+}
